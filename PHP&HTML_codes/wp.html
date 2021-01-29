@@ -1,0 +1,75 @@
+<?php
+session_start();
+if(!isset($_SESSION["id"]))
+	header("location:login.html");
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BANK</title>
+	<link rel= "stylesheet" type= "text/css" href="style.css">
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #5d6d7e;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px 16px;
+    text-decoration: underline;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+</style>
+</head>
+<body>
+	<ul>
+  <li><a href="home_request.php">Home</a></li>
+  
+  <li style="float:right"><a  href="logout_request.php">Logout</a></li>
+</ul>
+	<p>
+		<?php
+		
+		echo "EMPLOYEE ID: ".$_SESSION['id'];
+		?>
+	</p>
+	<div id="frm">
+		<form action="wp_request.php" method= "POST">
+			<center><p>
+				<input type="text" id="ta" name="acc_no" placeholder="ACCOUNT NUMBER" />
+			</p>
+			<p>
+				<select name="trans_type" onchange="firstStep(this)" style="height: 25px; WIDTH: 180PX">
+				<option>---TRANSACTION TYPE---</option>
+				<option text="SAVINGS">PAY</option>
+				</select>
+			</p>
+			<p>
+				<input type="number_format" id="ta" name="amt" placeholder="AMOUNT" />
+			</p>
+			<p>
+				<input style="height: 30px;" type="Submit" id="btn" name="Login" />
+				
+			</p></center>
+		</form>
+	</div>
+</body>
+
+</html>

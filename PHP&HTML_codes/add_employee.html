@@ -1,0 +1,97 @@
+<?php
+session_start();
+if(!isset($_SESSION["id"]))
+	header("location:login.html");
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ADD EMPLOYEE</title>
+	<link rel= "stylesheet" type= "text/css" href="style.css">
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #5d6d7e;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px 16px;
+    text-decoration: underline;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+</style>
+</head>
+<body>
+	<ul>
+  <li><a href="home_request.php">Home</a></li>
+  
+  <li style="float:right"><a  href="logout_request.php">Logout</a></li>
+</ul>
+	<p>
+		<?php
+		
+		echo "EMPLOYEE ID: ".$_SESSION['id'];
+		?>
+	</p>
+	<div id="frm">
+		<form action="add_employee_request.php" method= "POST">
+			<center><p>
+				<input type="TEXT" id="ta" name="name" placeholder="NAME" />
+			</p>
+			<p>
+				<input type="DATE" id="ta" name="dob" placeholder="DATE OF BIRTH"/>
+			</p>
+			<p>
+				<select name="gender" onchange="firstStep(this)" style="height: 25px; WIDTH: 180PX">
+				<option>GENDER</option>
+				<option text="F">FEMALE</option>
+				<option text="M">MALE</option>
+				</select>
+			</p>
+			<p>
+				<input type="number_format" id="ta" name="phno" placeholder="PHONE NUMBER"/>
+			</p>
+			<p>
+				<input type="TEXT" id="ta" name="addr" placeholder="ADDRESS"/>
+			</p>
+			<p>
+				<input type="TEXT" id="ta" name="sal" placeholder="SALARY"/>
+			</p>
+			<p>
+				<select name="role" onchange="firstStep(this)" style="height: 25px; WIDTH: 180PX">
+				<option>ROLE</option>
+				<option text="MANAGER">MANAGER</option>
+				<option text="EMPLOYEE">EMPLOYEE</option>
+				</select>
+			</p>
+			<p>
+				<input type="password" id="ta" name="pass1" placeholder="NEW PASSWORD"/>
+			</p>
+			<p>
+				<input type="password" id="ta" name="pass2" placeholder="CONFIRM PASSWORD"/>
+			</p>
+			<p>
+				<input style="height: 30px;" type="Submit" class="a" id="btn" name="Login" value="ADD EMPLOYEE" />
+			</p></center>
+		</form>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<?php
+session_start();
+if(!isset($_SESSION["id"]))
+	header("location:login.html");
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BANK</title>
+	<link rel= "stylesheet" type= "text/css" href="style.css">
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #5d6d7e;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px 16px;
+    text-decoration: underline;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+</style>
+</head>
+<body>
+	<ul>
+  <li><a href="home_request.php">Home</a></li>
+  <li style="float:right"><a  href="logout_request.php">Logout</a></li>
+</ul>
+	<p>
+		<?php
+		
+		echo "EMPLOYEE ID: ".$_SESSION['id'];
+		?>
+	</p>
+	<div id="frm">
+		<form action="view_fd.html" method= "POST">
+			<center>
+			<p>
+				<input style="width: 150px; height: 30px;" type="Submit" id="btn" value="VIEW FD's" />
+			</p>
+			</form>
+			<form action="create_fd.html" method= "POST">
+			<p>
+				<input style="width: 150px; height: 30px;" type="Submit" id="btn" value="CREATE FD" />
+			</p>
+			</form>
+			<form action="break_fd.html" method= "POST">
+			<p>
+				<input style="width: 150px; height: 30px;" type="Submit" id="btn" value="BREAK FD" />
+				
+			</p>
+		</form>
+		</center>
+	</div>
+</body>
+
+</html>

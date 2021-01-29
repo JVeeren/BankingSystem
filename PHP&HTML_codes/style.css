@@ -1,0 +1,35 @@
+body{
+	background: PeachPuff ;
+}
+#frm{
+	border: solid SlateGrey  3px;
+	width: 30%;
+	border-radius: 0px;
+	margin: 100px auto;
+	background:FloralWhite ;
+	padding: 60px;
+	position: relative;
+	
+}
+#btn{
+	color: #fff;
+	background: LightSlateGrey;
+	padding: 5px auto;
+	margin-top: 69% auto;
+	position: relative;	
+}
+#ta{
+	color: #000000;
+	background: white;
+	padding: 50px auto;
+	width: 175px;
+	position: relative;
+	height: 30px;
+}
+#home{
+	margin-top: 69% auto;
+	position: relative;
+}
+#logout{
+	
+}

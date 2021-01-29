@@ -1,0 +1,98 @@
+<?php
+session_start();
+if(!isset($_SESSION["id"]))
+	header("location:login.html");
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BANK</title>
+	<link rel= "stylesheet" type= "text/css" href="style.css">
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #5d6d7e;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px 16px;
+    text-decoration: underline;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+</style>
+</head>
+<body>
+	<ul>
+  <li><a href="home_request.php">Home</a></li>
+  
+  <li style="float:right"><a  href="logout_request.php">Logout</a></li>
+</ul>
+	<p>
+		<?php
+		
+		echo "EMPLOYEE ID: ".$_SESSION['id'];
+		?>
+	</p>
+	<div id="frm">
+		<form action="new_customer_request.php" method= "POST">
+			<center><p>
+				<input type="text" class="a" id="ta" name="name" placeholder="NAME" />
+			</p>
+			<p>
+				<input type="DATE" class="a" id="ta" name="dob" placeholder="DATE OF BIRTH" STYLE="HEIGHT: 25PX;"/>
+			</p>
+			<p>
+				<select name="gender" onchange="firstStep(this)" style="height: 25px; WIDTH: 180PX">
+				<option>GENDER</option>
+				<option text="F">FEMALE</option>
+				<option text="M">MALE</option>
+				</select>
+			</p>
+			<p>
+				<input type="number_format" class="a" id="ta" name="phno" placeholder="PHONE NUMBER"/>
+			</p>
+			<p>
+				<input type="text" class="a" id="ta" name="email" placeholder="EMAIL ID"/>
+			</p>
+
+            <p>
+				<input type="text" class="a" id="ta" name="addr" placeholder="ADDRESS"/>
+			</p>
+
+			<p>
+				<input type="text" class="a" id="ta" name="bal" placeholder="AMOUNT"/>
+			</p>
+			<p>
+				<select name="acc_type" onchange="firstStep(this)" style="height: 25px; WIDTH: 180PX">
+				<option>ACCOUNT TYPE</option>
+				<option text="CURRENT">CURRENT</option>
+				<option text="SAVINGS">SAVINGS</option>
+				<option text="SAVINGS">LOAN</option>
+				</select>
+			</p>
+			<p>
+				<input style="height: 30px;" type="Submit" class="a" id="btn" name="Login" value="CREATE ACCOUNT" />
+				
+			</p></center>
+		</form>
+	</div>
+</body>
+
+</html>
